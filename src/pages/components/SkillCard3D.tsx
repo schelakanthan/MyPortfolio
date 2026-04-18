@@ -1,13 +1,13 @@
-// src/pages/components/SkillCard3D.tsx
+// src/components/SkillCard3D.tsx
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, useInView } from 'framer-motion';
-import { LucideIcon } from 'lucide-react';
+import * as Icons from 'lucide-react';
 
 interface SkillCard3DProps {
   skill: {
     skill: string;
     level: number;
-    icon: LucideIcon;
+    icon: string;
     color: string;
     description: string;
   };
@@ -38,7 +38,8 @@ const SkillCard3D: React.FC<SkillCard3DProps> = ({ skill, index }) => {
     y.set(0);
   };
   
-  const IconComponent = skill.icon;
+  // Map icon string to actual component
+  const IconComponent = (Icons as any)[skill.icon] || Icons.Code;
 
   return (
     <motion.div
