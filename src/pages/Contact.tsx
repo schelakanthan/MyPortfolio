@@ -60,7 +60,7 @@ const ContactPage: React.FC = () => {
     { icon: Github, name: "GitHub", url: "https://github.com/schelakanthan", color: "from-gray-600 to-gray-400", username: "@zujanshan" },
     { icon: Linkedin, name: "LinkedIn", url: "https://www.linkedin.com/in/zujanshan-cj/", color: "from-blue-600 to-blue-400", username: "Chelakanthan Zujanshan" },
     { icon: Twitter, name: "Twitter", url: "https://x.com/CjShayn", color: "from-sky-500 to-blue-500", username: "@zujanshan" },
-    { icon: Globe, name: "Portfolio", url: "https://zujanshan.vercel.app/", color: "from-purple-500 to-pink-500", username: "zujanshan.dev" }
+    { icon: Globe, name: "Portfolio", url: "https://zujanshan.vercel.app/", color: "from-purple-500 to-pink-500", username: "zujanshan.vercel.app" }
   ];
 
   const cvHighlights = [
