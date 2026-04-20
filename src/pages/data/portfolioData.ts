@@ -1,20 +1,10 @@
 // src/data/portfolioData.ts
-import { LucideIcon } from 'lucide-react';
-import { 
-  Code, 
-  Terminal, 
-  Database, 
-  Smartphone, 
-  Users, 
-  MessageSquare,
-  Layers,
-  ShoppingBag
-} from 'lucide-react';
+// Remove icon imports completely - use string names instead
 
 export interface Skill {
   skill: string;
   level: number;
-  icon: LucideIcon;  // Change from string to LucideIcon
+  icon: string;  // Use string instead of LucideIcon
   color: string;
   description: string;
 }
@@ -44,42 +34,42 @@ export const skills: Skill[] = [
   { 
     skill: "React & Next.js", 
     level: 90, 
-    icon: Code,  // Now using the actual icon component
+    icon: "Code",  // Use string name
     color: "from-blue-500 to-cyan-500", 
     description: "Modern frontend frameworks for blazing fast UIs" 
   },
   { 
     skill: "Python / Flask", 
     level: 85, 
-    icon: Terminal, 
+    icon: "Terminal", 
     color: "from-green-500 to-emerald-500", 
     description: "Backend APIs and AI integration" 
   },
   { 
     skill: "MERN Stack", 
     level: 88, 
-    icon: Database, 
+    icon: "Database", 
     color: "from-orange-500 to-red-500", 
     description: "Full-stack MongoDB, Express, React, Node.js" 
   },
   { 
     skill: "Mobile Dev", 
     level: 80, 
-    icon: Smartphone, 
+    icon: "Smartphone", 
     color: "from-purple-500 to-pink-500", 
     description: "React Native cross-platform apps" 
   },
   { 
     skill: "Leadership", 
     level: 90, 
-    icon: Users, 
+    icon: "Users", 
     color: "from-yellow-500 to-orange-500", 
     description: "Team management and mentorship" 
   },
   { 
     skill: "Communication", 
     level: 92, 
-    icon: MessageSquare, 
+    icon: "MessageSquare", 
     color: "from-indigo-500 to-purple-500", 
     description: "Client and stakeholder communication" 
   }

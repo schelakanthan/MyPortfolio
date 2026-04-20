@@ -1,24 +1,18 @@
-// components/ProjectCard3D.tsx
+// src/components/ProjectCard3D.tsx
 import React, { useRef } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ExternalLink, Star, Layers, ShoppingBag } from 'lucide-react';
+import { Project } from '../data/portfolioData';
 
 interface ProjectCard3DProps {
-  project: {
-    id: number;
-    title: string;
-    description: string;
-    tech: string[];
-    gradient: string;
-    icon: string;
-    image?: string;
-  };
+  project: Project;
   index: number;
 }
 
 const ProjectCard3D: React.FC<ProjectCard3DProps> = ({ project, index }) => {
   const cardRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(cardRef, { once: true, amount: 0.2 });
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   
@@ -49,9 +43,8 @@ const ProjectCard3D: React.FC<ProjectCard3DProps> = ({ project, index }) => {
     <motion.div
       ref={cardRef}
       initial={{ opacity: 0, y: 50, rotateY: 10 }}
-      whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+      animate={isInView ? { opacity: 1, y: 0, rotateY: 0 } : { opacity: 0, y: 50, rotateY: 10 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      viewport={{ once: true }}
       style={{
         rotateX,
         rotateY,
@@ -78,9 +71,6 @@ const ProjectCard3D: React.FC<ProjectCard3DProps> = ({ project, index }) => {
                 {tech}
               </span>
             ))}
-            {project.tech.length > 3 && (
-              <span className="text-xs px-2 py-1 rounded-full bg-gray-700 text-gray-300">+{project.tech.length - 3}</span>
-            )}
           </div>
           <div className="flex items-center gap-2 text-sm text-gray-400">
             <Star className="w-4 h-4 text-yellow-400" />
